@@ -1,0 +1,50 @@
+/* Button Styles
+   This file contains styles for the Link and Disabled buttons.
+*/
+
+#LinkButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 120ms cubic-bezier(.2,.8,.2,1), box-shadow 120ms, background-color 120ms;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.12);
+    will-change: transform, box-shadow;
+}
+
+#LinkButton:hover {
+    background-color: #0056b3;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.14);
+}
+
+/* Clicking / pressed animation */
+#LinkButton:active {
+    transform: translateY(2px) scale(0.985);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.12);
+}
+
+/* Accessible focus state */
+#LinkButton:focus {
+    outline: 3px solid rgba(0,123,255,0.25);
+    outline-offset: 2px;
+}
+
+
+#DisabledButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #929292;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 120ms, transform 120ms, box-shadow 120ms;
+}
+
+#DisabledButton:hover {
+    background-color: #696969;
+}

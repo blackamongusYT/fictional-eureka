@@ -1,2 +1,38 @@
-<!DOCTYPE HTML>
-<title>Hello world</title>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Action Button</title>
+    <link rel="stylesheet" href="button-styles.css" type="text/css">
+</head>
+<body>
+
+    <button id="LinkButton">Click Me!</button>
+
+    <script>
+        document.getElementById("LinkButton").addEventListener("click", function(e) {
+            // create ripple
+            var btn = e.currentTarget;
+            var rect = btn.getBoundingClientRect();
+            var ripple = document.createElement('span');
+            ripple.className = 'ripple';
+            var size = Math.max(rect.width, rect.height) * 1.2;
+            ripple.style.width = ripple.style.height = size + 'px';
+            ripple.style.left = (e.clientX - rect.left - size / 2) + 'px';
+            ripple.style.top = (e.clientY - rect.top - size / 2) + 'px';
+            btn.appendChild(ripple);
+            setTimeout(function() { ripple.remove(); }, 700);
+
+            // delay alert slightly so ripple is visible
+            setTimeout(function() {
+                alert("Button clicked! Performing action...");
+            }, 200);
+        });
+    </script>
+
+    <button id="DisabledButton" disabled>Click Me!</button>
+
+
+</body>
+</html>
